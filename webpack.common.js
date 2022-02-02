@@ -3,39 +3,41 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 
 module.exports = {
-    entry: {
-        app: "./src/index.ts"
-    },
-    resolve: {
-        extensions: [".tsx", ".ts", ".js"],
-    },
-    module: {
-        rules: [
-            {
-                test: /\.ts(x?)$/,
-                exclude: /node_modules/,
-                use: [
-                    {
-                        loader: "ts-loader"
-                    }
-                ]
-            },
-            // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-            {
-                enforce: "pre",
-                test: /\.js$/,
-                loader: "source-map-loader"
-            }
+  entry: {
+    app: "./src/index.ts"
+  },
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.ts(x?)$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: "ts-loader"
+          }
         ]
-    },
-    plugins: [
-        new CleanWebpackPlugin({cleanStaleWebpackAssets: false}),
-        new HtmlWebpackPlugin({
-            title: "Web app",
-        }),
-    ],
-    output: {
-        filename: "[name].bundle.js",
-        path: path.resolve(__dirname, "dist"),
-    },
+      },
+      // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
+      {
+        enforce: "pre",
+        test: /\.js$/,
+        loader: "source-map-loader"
+      }
+    ]
+  },
+  plugins: [
+    new CleanWebpackPlugin({cleanStaleWebpackAssets: false}),
+    new HtmlWebpackPlugin({
+      title: "Web app",
+      template: "src/index.html",
+      scriptLoading: "blocking"
+    }),
+  ],
+  output: {
+    filename: "[name].bundle.js",
+    path: path.resolve(__dirname, "dist"),
+  }
 };
