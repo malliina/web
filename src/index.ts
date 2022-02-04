@@ -1,5 +1,3 @@
-import * as _ from 'lodash';
-
 class MyForm extends HTMLElement {
   constructor() {
     super();

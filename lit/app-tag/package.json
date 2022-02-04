@@ -15,6 +15,7 @@
     "start": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds\""
   },
   "dependencies": {
+    "@lit/reactive-element": "^1.2.1",
     "lit": "^2.0.2"
   },
   "devDependencies": {

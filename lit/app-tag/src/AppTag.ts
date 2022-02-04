@@ -1,10 +1,11 @@
 import { LitElement, html, css } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 
-const logo = new URL('../../assets/open-wc-logo.svg', import.meta.url).href;
+// const logo = new URL('../../assets/open-wc-logo.svg', import.meta.url).href;
 
+@customElement("app-tag")
 export class AppTag extends LitElement {
-  @property({ type: String }) title = 'My app';
+  @property({ type: String }) title = 'My appa';
 
   static styles = css`
     :host {
@@ -52,10 +53,9 @@ export class AppTag extends LitElement {
   render() {
     return html`
       <main>
-        <div class="logo"><img alt="open-wc logo" src=${logo} /></div>
         <h1>${this.title}</h1>
 
-        <p>Edit <code>src/AppTag.ts</code> and save to reload.</p>
+        <p>Edit <code>src/AppTag.ts</code> and save to reload!</p>
         <a
           class="app-link"
           href="https://open-wc.org/guides/developing-components/code-examples"

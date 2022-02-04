@@ -2,7 +2,6 @@ import { html } from 'lit';
 import { fixture, expect } from '@open-wc/testing';
 
 import { AppTag } from '../src/AppTag.js';
-import '../src/app-tag.js';
 
 describe('AppTag', () => {
   let element: AppTag;
